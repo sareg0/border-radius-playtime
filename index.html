@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Border-Radius</title>
+</head>
+<body>
+  <div class="controls">
+    <label for="top-right">border-top-right-radius</label>
+    <input class="control" id="top-right" type="range" min="0" max="100" value="0">
+
+    <label for="bottom-right">border-bottom-right-radius</label>
+    <input class="control" id="bottom-right" type="range" min="0" max="100" value="0">
+
+    <label for="bottom-left">border-bottom-left-radius</label>
+    <input class="control" id="bottom-left" type="range" min="0" max="100" value="0">
+
+    <label for="top-left">border-top-left-radius</label>
+    <input class="control" id="top-left" type="range" min="0" max="100" value="0">
+
+  </div>
+
+  <div class="box"></div>
+
+  <!-- longhand
+  equivalent shorthand
+  the /  -->
+  <style>
+    .box {
+      width: 400px;
+      height: 400px;
+      background-color: rebeccapurple;
+    }
+  </style>
+
+  <script>
+    const controls = document.querySelectorAll(".control")
+    const box = document.querySelector(".box")
+
+    controls.forEach((control) => {
+      control.onchange=changeProperty
+    })
+
+    function changeProperty (event) {
+      switch(event.target.id) {
+        case "top-right":
+          setTopRightRadius(event.target)
+        case "bottom-right":
+          setBottomRightRadius(event.target)
+        case "bottom-left":
+          setBottomLeftRadius(event.target)
+        case "top-left":
+          setTopLeftRadius(event.target)
+      }
+    }
+
+    function setTopRightRadius (el) {
+      box.style.borderTopRightRadius = `${el.value}%`
+    }
+
+    function setBottomRightRadius (el) {
+      box.style.borderBottomRightRadius = `${el.value}%`
+    }
+
+    function setBottomLeftRadius (el) {
+      box.style.borderBottomRightRadius = `${el.value}%`
+    }
+
+    function setTopLeftRadius (el) {
+      box.style.borderTopLeftRadius = `${el.value}%`
+    }
+  </script>
+</body>
+</html>
+
+
+// <!-- Learning `border-radius`
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
+
+// Mention Lea Verou
+
+
+// input for each corner. Also able to disable
+// shorthand v. longhand
+
+// The purpose should not just be to generate code, but rather teach the person
+
+
+
+// projects inspired by JS30
+// - the border radius editor
+//   - to help you learn how the property works and to help others
+
+// Understanding react
+// Tania Rascia
+
+// https://medium.com/@dan_abramov/react-components-elements-and-instances-90800811f8ca -->
